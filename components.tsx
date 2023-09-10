@@ -3,22 +3,22 @@ import type { Todo } from "./db";
 
 export const TodoItem = ({ content, completed, id }: Todo) => {
   return (
-    <div class="flex flex-row space-x-3">
-      <p>{content}</p>
+    <div class="flex flex-row space-x-3 border-b-2 my-2 p-2 border-dotted">
+      <p class="w-full">{content}</p>
       <input
+        class="w-6"
         type="checkbox"
         checked={completed}
         hx-post={`/todos/toggle/${id}`}
         hx-target="closest div"
-        hx-swap="after"
+        hx-swap="outerHTML"
       />
       <button
-        class="text-red-500"
         hx-delete={`/todos/${id}`}
         hx-swap="outerHTML"
         hx-target="closest div"
       >
-        X
+        ❌
       </button>
     </div>
   );
@@ -26,7 +26,7 @@ export const TodoItem = ({ content, completed, id }: Todo) => {
 
 export const TodoList = ({ todos }: { todos: Todo[] }) => {
   return (
-    <div>
+    <div class="h-full p-8 w-1/2">
       <TodoForm />
       <div id="todoListContainer">
         {todos.map((todo) => (
@@ -40,7 +40,7 @@ export const TodoList = ({ todos }: { todos: Todo[] }) => {
 export const TodoForm = () => {
   return (
     <form
-      class="flex flex-row space-x-3"
+      class="flex flex-row space-x-3 relative top-0 mb-8"
       hx-post="/todos"
       hx-swap="beforeend"
       hx-target="#todoListContainer"
@@ -48,9 +48,14 @@ export const TodoForm = () => {
       <input
         type="text"
         name="content"
-        class="border-2 border-black p-1 rounded"
+        class="border-2 border-black p-1 rounded w-full"
       />
-      <button type="submit">Add</button>
+      <button
+        class="border-2 border-gray-700 bg-gray-700 hover:bg-gray-500 w-24 rounded text-white"
+        type="submit"
+      >
+        Add
+      </button>
     </form>
   );
 };
