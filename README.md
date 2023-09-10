@@ -51,7 +51,10 @@ Inspired by [The BETH Stack: Build Hypermedia-Driven Web Apps with Great DX and 
 ✅ SSG JSX works very well with HTMX
 
 ❌ Completely different way of thinking about apps which I find unpleasant
+
 ❌ Equally as unpleasant as imperative JS, but less intuitive
+
+❌ Refactoring is difficult
 
 ---
 
@@ -71,11 +74,11 @@ Inspired by [The BETH Stack: Build Hypermedia-Driven Web Apps with Great DX and 
 
 ## Summary
 
-**✅ Bun** had a great DX and I thoroughly enjoyed using it. I'm aleready looking forward to using more of it and think it can dethrone node.
+**✅ Bun** had a great DX and I thoroughly enjoyed using it. I'm aleready looking forward to using more of it and think it can dethrone Node.
 
 **✅ Elysia** is modern and intuitive. I liked it. My gut feeling is that I prefer Express because it's what I know and love but I'd need to build a larger app with Elysia to decide for sure. If Bun really is a drop-in replacement for node, it might be hard for me to pick Elysia over Express.
 
-**❌ HTMX** was not something I'm looking forward to using again. Admittedly it has great interop with SSG JSX but it's a completely different way of thinking about building UIs that I don't want to learn to like. It takes the fun out of the front-end for me.
+**❌ HTMX** was not something I'm looking forward to using again. Admittedly it has great interop with SSG JSX but it's a completely different way of thinking about building UIs that I don't want to learn to like. It takes the fun out of the front-end for me. As I refactored the styling, I kept breaking the app which makes it clear that using attributes like `closest div` is not a good and explicit targets should be used. The more I refactored, the more I started to dislike HTMX.
 
 **✅ SQLite** got the job done. I like the idea of a portable relational database and I love that Bun supports SQLite drivers by default. Since I plan to use a lot more Bun, I'll probably be using a lot more SQLite. Next time, I'll play with an ORM instead of writing vanilla SQL.
 
