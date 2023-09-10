@@ -4,7 +4,7 @@
 - **E**lysia
 - **T**ailwind
 - **H**TMX
-- **S**Qlite
+- **S**QLite
 
 Inspired by [The BETH Stack: Build Hypermedia-Driven Web Apps with Great DX and Performance](https://youtu.be/cpzowDDJj24?si=OX6VxrwnRbDEFvmB) by Ethan Niser but without Turso and with a slightly different approach.
 
