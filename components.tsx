@@ -10,7 +10,7 @@ export const TodoItem = ({ content, completed, id }: Todo) => {
         checked={completed}
         hx-post={`/todos/toggle/${id}`}
         hx-target="closest div"
-        hx-swap="outerHTML"
+        hx-swap="after"
       />
       <button
         class="text-red-500"
@@ -27,10 +27,12 @@ export const TodoItem = ({ content, completed, id }: Todo) => {
 export const TodoList = ({ todos }: { todos: Todo[] }) => {
   return (
     <div>
-      {todos.map((todo) => (
-        <TodoItem {...todo} />
-      ))}
       <TodoForm />
+      <div id="todoListContainer">
+        {todos.map((todo) => (
+          <TodoItem {...todo} />
+        ))}
+      </div>
     </div>
   );
 };
@@ -40,8 +42,8 @@ export const TodoForm = () => {
     <form
       class="flex flex-row space-x-3"
       hx-post="/todos"
-      hx-swap="beforebegin"
-      hx-reset-on-success
+      hx-swap="beforeend"
+      hx-target="#todoListContainer"
     >
       <input
         type="text"
