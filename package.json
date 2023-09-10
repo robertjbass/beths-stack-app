@@ -1,0 +1,20 @@
+{
+  "name": "bun-app",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "bun run index.tsx",
+    "serve": "bun --watch index.tsx"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "typed-html": "^3.0.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@elysiajs/html": "^0.6.4",
+    "elysia": "^0.6.20"
+  }
+}
