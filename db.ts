@@ -1,4 +1,10 @@
-import { Todo, db, state } from ".";
+import { Database } from "bun:sqlite";
+
+export type Todo = {
+  id: number;
+  content: string;
+  completed: boolean;
+};
 
 export const getTodos = (where?: string): Todo[] | void => {
   try {
@@ -49,3 +55,22 @@ export const deleteTodo = ($id: number): void => {
     console.error(error);
   }
 };
+
+class State {
+  public todos: Todo[] = [];
+
+  constructor() {
+    this.refresh();
+  }
+
+  public refresh() {
+    this.todos = getTodos() || [];
+  }
+}
+
+export const db = new Database("db.sqlite", { create: true });
+db.query(
+  "CREATE TABLE IF NOT EXISTS todo (id INTEGER PRIMARY KEY AUTOINCREMENT, content TEXT NOT NULL, completed BOOLEAN NOT NULL DEFAULT false)"
+).run();
+
+export const state = new State();
